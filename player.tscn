@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://4h3w3kwwqqwr"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_t6fkc"]
+[ext_resource type="Texture2D" uid="uid://4n8pq2rjye4s" path="res://car-removebg-preview.png" id="2_3iqf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw4cn"]
+size = Vector2(169, 47)
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_t6fkc")
+metadata/_edit_group_ = true
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.45199, 0.661972)
+texture = ExtResource("2_3iqf3")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bw4cn")

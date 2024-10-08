@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwxr2sbunm0n0"]
+
+[ext_resource type="Script" path="res://PauseMenu.gd" id="1_oxpkc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oxpkc")
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResumeButton" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="ExitButton" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

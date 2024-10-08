@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp4ly56vlf187"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_c8b3f"]
+[ext_resource type="PackedScene" uid="uid://dcavs57b74b5r" path="res://bg.tscn" id="2_rely5"]
+[ext_resource type="PackedScene" uid="uid://4h3w3kwwqqwr" path="res://player.tscn" id="5_ufnil"]
+[ext_resource type="PackedScene" uid="uid://x1mq5w4kodd8" path="res://obstical.tscn" id="6_h7rtw"]
+
+[sub_resource type="Curve2D" id="Curve2D_r1ryj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1412, 51, 0, 0, 0, 0, 1417, 473)
+}
+point_count = 2
+
+[node name="Main" type="Node"]
+script = ExtResource("1_c8b3f")
+obstical_scene = ExtResource("6_h7rtw")
+
+[node name="bg" parent="." instance=ExtResource("2_rely5")]
+position = Vector2(-37, 2)
+
+[node name="player" parent="." instance=ExtResource("5_ufnil")]
+position = Vector2(45, 298)
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="instructions" type="Label" parent="ui"]
+offset_left = -87.0
+offset_top = 957.0
+offset_right = 437.0
+offset_bottom = 1087.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "use w/up and s/down to move"
+
+[node name="instructions white" type="Label" parent="ui/instructions"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = -508.0
+offset_right = 615.0
+offset_bottom = -378.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "use w/up and s/down to move"
+
+[node name="EnemyPath" type="Path2D" parent="."]
+position = Vector2(-446, 0)
+curve = SubResource("Curve2D_r1ryj")
+metadata/_edit_group_ = true
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
+position = Vector2(1412, 51)
+rotation = 1.55895
+
+[node name="EnemyTimer" type="Timer" parent="."]
+
+[node name="obstical" parent="." instance=ExtResource("6_h7rtw")]
+
+[connection signal="hit" from="player" to="." method="gameover"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="gone" from="obstical" to="." method="leftscreen"]
+[connection signal="hit" from="obstical" to="." method="gameover"]

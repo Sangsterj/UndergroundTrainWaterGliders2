@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcavs57b74b5r"]
+
+[ext_resource type="Script" path="res://background.gd" id="1_na2d5"]
+[ext_resource type="Texture2D" uid="uid://cdjcv1jjgridu" path="res://tester22.jpg" id="2_p38cf"]
+[ext_resource type="Texture2D" uid="uid://cakgomxnymjnv" path="res://doodles.jpg" id="3_k3jlu"]
+
+[node name="bg" type="Node2D"]
+script = ExtResource("1_na2d5")
+metadata/_edit_group_ = true
+
+[node name="backgroundleft2" type="Sprite2D" parent="."]
+position = Vector2(2259.15, 267)
+scale = Vector2(2.72692, 0.43437)
+texture = ExtResource("2_p38cf")
+
+[node name="backgroundright2" type="Sprite2D" parent="."]
+position = Vector2(3029, -773)
+texture = ExtResource("3_k3jlu")
